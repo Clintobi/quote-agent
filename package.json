@@ -1,0 +1,16 @@
+{
+  "name": "devis-agent",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "French free-text repair request -> grounded supplier-catalog match -> PDF quote. Never invents a price: unmatched items are flagged for manual pricing, not guessed.",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.110.0",
+    "pdfkit": "^0.15.0"
+  }
+}
