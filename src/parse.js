@@ -1,9 +1,9 @@
 import Anthropic from "@anthropic-ai/sdk";
 
-// Turn a free-text French repair request into structured line items.
-// With a key, Claude does the parse; without one, a bundled example runs so the
-// demo works offline. Parsing is the ONLY place a model is used — matching and
-// pricing are fully deterministic, which is the whole point: no invented prices.
+// Turn a free-text service request into structured line items. With a key,
+// Claude does the parse; without one, a bundled example runs so the demo works
+// offline. Parsing is the ONLY place a model is used — matching and pricing are
+// fully deterministic, which is the whole point: no invented prices.
 export async function parseRequest(text, { apiKey } = {}) {
   if (!apiKey) return { items: mockParse(), via: "mock" };
 
@@ -12,8 +12,8 @@ export async function parseRequest(text, { apiKey } = {}) {
     model: "claude-opus-4-8",
     max_tokens: 1024,
     system:
-      "Extract the products and services a plumber must quote from a French repair " +
-      'request. Return ONLY JSON: {"items":[{"query":"<short product name in French>","qty":<number>}]}. ' +
+      "Extract the products and services a tradesperson must quote from a customer's " +
+      'service request. Return ONLY JSON: {"items":[{"query":"<short product name>","qty":<number>}]}. ' +
       "One entry per distinct item. No prose, no code fences.",
     messages: [{ role: "user", content: text }],
   });
@@ -24,9 +24,9 @@ export async function parseRequest(text, { apiKey } = {}) {
 
 function mockParse() {
   return [
-    { query: "chauffe-eau 200 litres", qty: 1 },
-    { query: "robinet thermostatique", qty: 2 },
-    { query: "tube cuivre 18mm", qty: 5 },
-    { query: "detartrage complet du circuit", qty: 1 },
+    { query: "50 gallon water heater", qty: 1 },
+    { query: "thermostatic mixing valve", qty: 2 },
+    { query: "copper pipe 3/4", qty: 15 },
+    { query: "full system descale", qty: 1 },
   ];
 }

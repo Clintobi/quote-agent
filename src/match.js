@@ -3,8 +3,8 @@
 // floor, the item is flagged for a human — never guessed.
 
 const STOP = new Set([
-  "le", "la", "les", "un", "une", "des", "de", "du", "et", "ou", "pour",
-  "avec", "au", "aux", "en", "the",
+  "the", "a", "an", "of", "in", "to", "and", "for", "with", "on",
+  "le", "la", "les", "un", "une", "des", "de", "du", "et", "ou", "au", "aux", "en",
 ]);
 
 const norm = (s) =>

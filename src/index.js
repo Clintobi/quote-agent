@@ -15,7 +15,7 @@ const apiKey = process.env.ANTHROPIC_API_KEY;
 const catalog = JSON.parse(readFileSync("data/catalog.json", "utf8"));
 const request = readFileSync("data/sample-request.txt", "utf8");
 
-console.log("\nDemande client:\n" + request.trim() + "\n");
+console.log("\nCustomer request:\n" + request.trim() + "\n");
 
 const { items, via } = await parseRequest(request, { apiKey });
 console.log(`Parsed ${items.length} items (via ${via}).\n`);
@@ -23,17 +23,13 @@ console.log(`Parsed ${items.length} items (via ${via}).\n`);
 const quote = buildQuote(items, catalog);
 
 console.log("Matched to catalog (real SKU + real price):");
-quote.lines.forEach((l) =>
-  console.log(`  ${l.sku}   ${l.label}   ${l.qty} x ${l.unitPrice} = ${l.total} CHF`)
-);
+quote.lines.forEach((l) => console.log(`  ${l.sku}   ${l.label}   ${l.qty} x $${l.unitPrice} = $${l.total}`));
 if (quote.flagged.length) {
   console.log("\nFlagged — no confident match, NOT auto-priced:");
   quote.flagged.forEach((f) => console.log("  - " + f));
 }
-console.log(
-  `\nSous-total ${quote.subtotal}  Marge ${quote.margin}  Main d'oeuvre ${quote.labor}  TVA ${quote.vat}`
-);
-console.log(`TOTAL ${quote.total} CHF`);
+console.log(`\nSubtotal $${quote.subtotal}  Markup $${quote.markup}  Labor $${quote.labor}  Tax $${quote.tax}`);
+console.log(`TOTAL $${quote.total}`);
 
-const out = await writePdf(quote, { date: new Date().toLocaleDateString("fr-CH") }, "out/devis.pdf");
+const out = await writePdf(quote, { date: new Date().toLocaleDateString("en-US") }, "out/quote.pdf");
 console.log(`\nPDF written: ${out}`);

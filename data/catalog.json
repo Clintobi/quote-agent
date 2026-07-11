@@ -1,10 +1,10 @@
 [
-  { "sku": "CE-200", "label": "Chauffe-eau electrique 200L", "price": 489.00, "unit": "piece" },
-  { "sku": "RT-15", "label": "Robinet thermostatique 1/2", "price": 42.50, "unit": "piece" },
-  { "sku": "TC-18", "label": "Tube cuivre 18mm metre", "price": 7.90, "unit": "m" },
-  { "sku": "VA-34", "label": "Vanne arret 3/4", "price": 18.20, "unit": "piece" },
-  { "sku": "JT-STD", "label": "Joint fibre standard", "price": 0.80, "unit": "piece" },
-  { "sku": "PAC-8", "label": "Pompe a chaleur air-eau 8kW", "price": 5290.00, "unit": "piece" },
-  { "sku": "MIT-TH", "label": "Mitigeur thermostatique douche", "price": 129.00, "unit": "piece" },
-  { "sku": "SIP-40", "label": "Siphon PVC 40mm", "price": 6.40, "unit": "piece" }
+  { "sku": "WH-50", "label": "50 gallon electric water heater", "price": 649.00, "unit": "each" },
+  { "sku": "TMX-12", "label": "Thermostatic mixing valve 1/2 in", "price": 58.00, "unit": "each" },
+  { "sku": "CU-34", "label": "Copper pipe 3/4 in", "price": 4.20, "unit": "ft" },
+  { "sku": "SHV-12", "label": "Shutoff valve 1/2 in", "price": 12.50, "unit": "each" },
+  { "sku": "PT-STD", "label": "PTFE thread tape", "price": 2.10, "unit": "roll" },
+  { "sku": "HP-3T", "label": "Heat pump 3 ton", "price": 4200.00, "unit": "each" },
+  { "sku": "FCT-BR", "label": "Bathroom sink faucet", "price": 89.00, "unit": "each" },
+  { "sku": "PTR-40", "label": "P-trap 40mm", "price": 6.40, "unit": "each" }
 ]
